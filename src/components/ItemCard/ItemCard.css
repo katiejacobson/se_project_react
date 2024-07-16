@@ -1,0 +1,22 @@
+.card {
+  position: relative;
+  width: 323px;
+  display: flex;
+  justify-content: center;
+  border-radius: 20px;
+}
+
+.card__title {
+  position: absolute;
+  top: 15px;
+  background-color: #ffffff;
+  color: rgba(0, 0, 0, 0.6);
+  font-size: 16px;
+  margin: 0;
+  padding: 2px 12px;
+  border-radius: 4px;
+}
+
+.card__image {
+  width: 100%;
+}

@@ -1,0 +1,22 @@
+.modal__close-button {
+  position: absolute;
+  top: 20px;
+  right: 28px;
+  background-image: url(../../assets/close-icon.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-color: transparent;
+  height: 16px;
+  width: 16px;
+  border: none;
+}
+
+.modal__title {
+  font-size: 16px;
+  margin-top: 20px;
+  margin-bottom: 12px;
+}
+
+.modal__text {
+  font-size: 16px;
+}

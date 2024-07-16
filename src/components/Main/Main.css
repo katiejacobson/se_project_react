@@ -1,0 +1,8 @@
+.itemcards {
+  list-style-type: none;
+  display: flex;
+  flex-wrap: wrap;
+  grid-gap: 20px;
+  justify-content: center;
+  padding: 0;
+}

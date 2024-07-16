@@ -49,6 +49,11 @@ export const hawaiiCoordinates = {
   longitude: -157,
 };
 
+export const manilaCoordinates = {
+  latitude: 14.5995,
+  longitude: 120.9842,
+};
+
 export const weatherOptions = [
   {
     day: true,

@@ -6,15 +6,11 @@ import Main from "../Main/Main.jsx";
 import Footer from "../Footer/Footer.jsx";
 import ModalWithForm from "../ModalWithForm/ModalWithForm.jsx";
 import ItemModal from "../ItemModal/ItemModal.jsx";
-import {
-  getWeather,
-  processWeatherData,
-  getTime,
-  timeOfDay,
-} from "../../utils/weatherApi.js";
+import { getWeather, processWeatherData } from "../../utils/weatherApi.js";
 import {
   coordinates,
   hawaiiCoordinates,
+  manilaCoordinates,
   APIkey,
 } from "../../utils/constants.js";
 
@@ -66,7 +62,7 @@ function App() {
   };
 
   useEffect(() => {
-    getWeather(coordinates, APIkey)
+    getWeather(manilaCoordinates, APIkey)
       .then((res) => {
         const currentWeather = processWeatherData(res);
         setWeatherData(currentWeather);

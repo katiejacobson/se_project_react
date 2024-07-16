@@ -27,7 +27,7 @@ export const processWeatherData = (data) => {
   result.city = data.name;
   result.temperature = data.main.temp;
   result.type = getWeatherDescription(data.main.temp);
-  result.isDay = timeOfDay(data.sys.sunrise, data.sys.sunset, getTime());
+  result.isDay = getDayorNight(data.sys.sunrise, data.sys.sunset, getTime());
   result.condition = data.weather[0].main.toLowerCase();
   return result;
 };
@@ -37,7 +37,7 @@ export function getTime() {
   return currentTime;
 }
 
-export function timeOfDay(sunrise, sunset, currentTime) {
+export function getDayorNight(sunrise, sunset, currentTime) {
   if (currentTime > sunrise && currentTime < sunset) {
     return true;
   } else {

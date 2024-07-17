@@ -6,17 +6,15 @@ function ItemCard({ item, onCardClick }) {
   };
 
   return (
-    <div>
-      <li className="card">
-        <p className="card__title">{item.name}</p>
-        <img
-          onClick={handleCardClick}
-          className="card__image"
-          src={item.link}
-          alt={item.name}
-        ></img>
-      </li>
-    </div>
+    <li className="card">
+      <p className="card__title">{item.name}</p>
+      <img
+        onClick={handleCardClick}
+        className="card__image"
+        src={item.link}
+        alt={item.name}
+      ></img>
+    </li>
   );
 }
 

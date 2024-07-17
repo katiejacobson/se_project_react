@@ -27,42 +27,45 @@ function App() {
   const handleCardClick = (item) => {
     setActiveModal("preview");
     setSelectedCard(item);
-    onModalOpen();
   };
 
   const handleAddClick = () => {
     setActiveModal("add-garment");
-    onModalOpen();
   };
 
   const closeActiveModal = () => {
     setActiveModal("");
-    document.removeEventListener("keydown", handleEscClick);
   };
 
-  const handleEscClick = (evt) => {
-    if (evt.key === "Escape") {
-      closeActiveModal();
-    }
-  };
+  useEffect(() => {
+    if (!activeModal) return;
 
-  const onModalOpen = () => {
-    document.addEventListener("keydown", handleEscClick);
-  };
+    const handleEscClose = (evt) => {
+      if (evt.key === "Escape") {
+        closeActiveModal();
+      }
+    };
 
-  const onClose = () => {
-    document.addEventListener("mousedown", (evt) => {
+    const handleModalClose = (evt) => {
       if (evt.target.classList.contains("modal_opened")) {
         closeActiveModal();
       }
       if (evt.target.classList.contains("modal__close-button")) {
         closeActiveModal();
       }
-    });
-  };
+    };
+
+    document.addEventListener("keydown", handleEscClose);
+    document.addEventListener("mousedown", handleModalClose);
+
+    return () => {
+      document.removeEventListener("keydown", handleEscClose);
+      document.removeEventListener("mousedown", handleModalClose);
+    };
+  }, [activeModal]);
 
   useEffect(() => {
-    getWeather(manilaCoordinates, APIkey)
+    getWeather(coordinates, APIkey)
       .then((res) => {
         const currentWeather = processWeatherData(res);
         setWeatherData(currentWeather);
@@ -82,7 +85,7 @@ function App() {
           activeModal={activeModal}
           handleCloseClick={closeActiveModal}
           name={"new-garment"}
-          handleOnClose={onClose}
+          isOpen={activeModal === "add-garment"}
         >
           <div className="modal__form-field">
             <label htmlFor="name" className="modal__label">
@@ -148,7 +151,6 @@ function App() {
         <ItemModal
           activeModal={activeModal}
           card={selectedCard}
-          handleOnClose={onClose}
           name={"preview"}
         />
       </div>

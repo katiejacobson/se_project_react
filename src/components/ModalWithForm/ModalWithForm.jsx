@@ -7,15 +7,12 @@ function ModalWithForm({
   activeModal,
   handleCloseClick,
   name,
-  handleOnClose,
+  isOpen,
 }) {
   return (
     <>
-      {handleOnClose()}
       <div
-        className={`modal modal_type_${name} ${
-          activeModal === "add-garment" ? "modal_opened" : ""
-        }`}
+        className={`modal modal_type_${name} ${isOpen ? "modal_opened" : ""}`}
       >
         <div className="modal__container">
           <button
@@ -23,7 +20,7 @@ function ModalWithForm({
             type="button"
             onClick={handleCloseClick}
             aria-label="close"
-          ></button>
+          />
           <h2 className="modal__heading">{title}</h2>
           <form className="modal__form" name={name} noValidate>
             {children}

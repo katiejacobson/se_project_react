@@ -1,9 +1,8 @@
 import "./ItemModal.css";
 
-function ItemModal({ activeModal, card, handleOnClose, name }) {
+function ItemModal({ activeModal, card, name }) {
   return (
     <>
-      {handleOnClose()}
       <div
         className={`modal modal_type_${name} ${
           activeModal === "preview" ? "modal_opened" : ""
@@ -13,7 +12,6 @@ function ItemModal({ activeModal, card, handleOnClose, name }) {
           <button
             className="modal__close-button"
             type="button"
-            onClick={handleOnClose}
             aria-label="close"
           ></button>
           <img className="modal__image" src={card.link} alt={card.name} />

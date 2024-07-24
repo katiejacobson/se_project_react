@@ -6,3 +6,11 @@
   justify-content: center;
   padding: 0;
 }
+
+.cards__unit-F {
+  content: "&deg; F";
+}
+
+.cards__unit-C {
+  content: "&deg; C";
+}

@@ -54,6 +54,11 @@ export const manilaCoordinates = {
   longitude: 120.9842,
 };
 
+export const icelandCoordinates = {
+  latitude: 64.9631,
+  longitude: -19.0208,
+};
+
 export const weatherOptions = [
   {
     day: true,

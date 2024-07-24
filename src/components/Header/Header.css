@@ -31,6 +31,12 @@
   gap: 12px;
 }
 
+.header__profile-info {
+  display: flex;
+  flex-direction: row;
+}
+
 .header__username {
   margin: 0;
+  margin-right: 12px;
 }

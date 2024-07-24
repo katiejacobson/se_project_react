@@ -3,6 +3,7 @@ import logo from "../../assets/logo.svg";
 import avatar from "../../assets/avatar.svg";
 import Switch from "../Switch/Switch.jsx";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 function Header({ handleAddClick, weatherData }) {
   function getDate() {
@@ -16,7 +17,9 @@ function Header({ handleAddClick, weatherData }) {
   return (
     <header className="header">
       <div className="header__date-container">
-        <img className="header__logo" src={logo} alt="Logo" />
+        <Link to="/">
+          <img className="header__logo" src={logo} alt="Logo" />
+        </Link>
         <p className="header__date-and-location">
           {getDate()}, {weatherData.city}
         </p>
@@ -30,8 +33,12 @@ function Header({ handleAddClick, weatherData }) {
         >
           + Add Clothes
         </button>
-        <p className="header__username">Terrence Tegegne</p>
-        <img className="header__avatar" src={avatar} alt="avatar" />
+        <Link to="/profile">
+          <div className="header__profile-info">
+            <p className="header__username">Terrence Tegegne</p>
+            <img className="header__avatar" src={avatar} alt="avatar" />
+          </div>
+        </Link>
       </div>
     </header>
   );

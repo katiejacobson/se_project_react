@@ -2,7 +2,12 @@ import "./ClothesSection.css";
 import ItemCard from "../ItemCard/ItemCard.jsx";
 import { defaultClothingItems } from "../../utils/constants";
 
-function ClothesSection({ weatherData, handleCardClick, handleAddClick }) {
+function ClothesSection({
+  weatherData,
+  handleCardClick,
+  handleAddClick,
+  clothingItems,
+}) {
   return (
     <div className="clothes-section">
       <div className="clothes-section__button-container">
@@ -16,7 +21,7 @@ function ClothesSection({ weatherData, handleCardClick, handleAddClick }) {
       </div>
       <div className="clothes-section__item-container">
         <ul className="clothes-section__cards">
-          {defaultClothingItems
+          {clothingItems
             .filter((item) => {
               return item.weather === weatherData.type;
             })

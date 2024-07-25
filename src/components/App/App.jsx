@@ -10,6 +10,7 @@ import ItemModal from "../ItemModal/ItemModal.jsx";
 import Profile from "../Profile/Profile.jsx";
 import AddItemModal from "../AddItemModal/AddItemModal.jsx";
 import { getWeather, processWeatherData } from "../../utils/weatherApi.js";
+import { getItems } from "../../utils/api.js";
 import {
   coordinates,
   hawaiiCoordinates,
@@ -30,6 +31,7 @@ function App() {
   const [activeModal, setActiveModal] = useState("");
   const [selectedCard, setSelectedCard] = useState({});
   const [currentTemperatureUnit, setCurrentTemperatureUnit] = useState("F");
+  const [clothingItems, setClothingItems] = useState({});
 
   const handleToggleSwitchChange = (e) => {
     if (currentTemperatureUnit === "F") setCurrentTemperatureUnit("C");
@@ -96,6 +98,9 @@ function App() {
         setWeatherData(currentWeather);
       })
       .catch(console.error);
+    getItems().then((res) => {
+      setClothingItems(res);
+    });
   }, []);
 
   return (
@@ -113,6 +118,7 @@ function App() {
                   weatherData={weatherData}
                   handleCardClick={handleCardClick}
                   setTemperatureDisplay={setTemperatureDisplay}
+                  clothingItems={clothingItems}
                 />
               }
             />
@@ -123,6 +129,7 @@ function App() {
                   weatherData={weatherData}
                   handleCardClick={handleCardClick}
                   handleAddClick={handleAddClick}
+                  clothingItems={clothingItems}
                 />
               }
             />

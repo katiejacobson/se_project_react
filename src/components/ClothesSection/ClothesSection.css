@@ -1,0 +1,28 @@
+.clothes-section {
+  width: 1015px;
+}
+
+.clothes-section__button-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.clothes-section__text {
+  font-weight: 700;
+  margin-right: 16px;
+}
+
+.clothes-section__add-items-button {
+  border: none;
+}
+
+.itemcards {
+  list-style-type: none;
+  display: flex;
+  flex-wrap: wrap;
+  grid-gap: 20px;
+  justify-content: center;
+  padding: 0;
+  border-radius: 20px;
+}

@@ -8,6 +8,7 @@ import Footer from "../Footer/Footer.jsx";
 import ModalWithForm from "../ModalWithForm/ModalWithForm.jsx";
 import ItemModal from "../ItemModal/ItemModal.jsx";
 import Profile from "../Profile/Profile.jsx";
+import AddItemModal from "../AddItemModal/AddItemModal.jsx";
 import { getWeather, processWeatherData } from "../../utils/weatherApi.js";
 import {
   coordinates,
@@ -54,6 +55,11 @@ function App() {
 
   const closeActiveModal = () => {
     setActiveModal("");
+  };
+
+  const handleAddItemSubmit = (e, values) => {
+    console.log(e);
+    console.log(values);
   };
 
   useEffect(() => {
@@ -116,80 +122,18 @@ function App() {
                 <Profile
                   weatherData={weatherData}
                   handleCardClick={handleCardClick}
+                  handleAddClick={handleAddClick}
                 />
               }
             />
           </Routes>
           <Footer />
-          <ModalWithForm
-            title="New garment"
-            buttonText="Add garment"
+          <AddItemModal
             activeModal={activeModal}
             handleCloseClick={closeActiveModal}
-            name={"new-garment"}
-            isOpen={activeModal === "add-garment"}
-          >
-            <div className="modal__form-field">
-              <label htmlFor="name" className="modal__label">
-                Name{" "}
-                <input
-                  className="modal__input"
-                  name="name"
-                  type="text"
-                  id="name"
-                  placeholder="Name"
-                  required
-                  minLength="2"
-                  maxLength="40"
-                />{" "}
-              </label>
-            </div>
-            <div className="modal__form-field">
-              <label htmlFor="url" className="modal__label">
-                Image
-              </label>
-              <input
-                className="modal__input"
-                type="url"
-                name="image"
-                id="url"
-                placeholder="Image URL"
-              />
-            </div>
-            <div className="modal__form-field">
-              <p className="modal__text">Select the weather type:</p>
-              <div className="modal__radio-button">
-                <input
-                  className="modal__radio-button-choice"
-                  type="radio"
-                  name="weather"
-                  id="hot"
-                  value="hot"
-                />
-                <label htmlFor="hot">Hot</label>
-              </div>
-              <div className="modal__radio-button">
-                <input
-                  className="modal__radio-button-choice"
-                  type="radio"
-                  name="weather"
-                  id="warm"
-                  value="warm"
-                />
-                <label htmlFor="warm">Warm</label>
-              </div>
-              <div className="modal__radio-button">
-                <input
-                  className="modal__radio-button-choice"
-                  type="radio"
-                  name="weather"
-                  id="cold"
-                  value="cold"
-                />
-                <label htmlFor="cold">Cold</label>
-              </div>
-            </div>
-          </ModalWithForm>
+            onAddItem={handleAddItemSubmit}
+            closeActiveModal={closeActiveModal}
+          />
           <ItemModal
             activeModal={activeModal}
             card={selectedCard}

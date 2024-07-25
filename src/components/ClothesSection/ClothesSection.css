@@ -17,7 +17,7 @@
   border: none;
 }
 
-.itemcards {
+.clothes-section__cards {
   list-style-type: none;
   display: flex;
   flex-wrap: wrap;

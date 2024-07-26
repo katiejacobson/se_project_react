@@ -22,9 +22,8 @@ export const addItems = (data) => {
   });
 };
 
-//   deleteCard(data) {
-//     return this._request(`${this._baseUrl}/cards/${data}`, {
-//       method: "DELETE",
-//       headers: this._headers,
-//     });
-//   }
+export const deleteItems = (id) => {
+  return fetch(`http://localhost:3001/items/${id}`, {
+    method: "DELETE",
+  });
+};

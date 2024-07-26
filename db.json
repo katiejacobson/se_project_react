@@ -104,9 +104,21 @@
     },
     {
       "name": "bathing suit",
-      "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwvh8HpKX7WEw6D-zFgzi-YAB01p0XlHrj9A&s",
-      "weather": "warm",
+      "imageUrl": "https://suuksess.com/cdn/shop/products/Green_Tankini_Bathing_Suit_Suuksess_2.jpg?v=1692351954&width=1600",
+      "weather": "hot",
       "_id": 17
+    },
+    {
+      "name": "vest",
+      "imageUrl": "https://i5.walmartimages.com/asr/9add1786-dcd3-495b-a71c-8d3926f616ce.e189000f065e1bde5db831db9d01d701.jpeg",
+      "weather": "",
+      "_id": 18
+    },
+    {
+      "name": "vest",
+      "imageUrl": "https://i5.walmartimages.com/asr/9add1786-dcd3-495b-a71c-8d3926f616ce.e189000f065e1bde5db831db9d01d701.jpeg",
+      "weather": "warm",
+      "_id": 19
     }
   ]
 }

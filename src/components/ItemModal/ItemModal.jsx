@@ -1,6 +1,6 @@
 import "./ItemModal.css";
 
-function ItemModal({ activeModal, card, name }) {
+function ItemModal({ activeModal, card, name, handleDeleteItem }) {
   return (
     <>
       <div
@@ -16,8 +16,21 @@ function ItemModal({ activeModal, card, name }) {
           ></button>
           <img className="modal__image" src={card.imageUrl} alt={card.name} />
           <div className="modal__caption">
-            <h2 className="modal__title">{card.name}</h2>
-            <p className="modal__text">Weather: {card.weather}</p>
+            <div className="modal__info">
+              <h2 className="modal__title">{card.name}</h2>
+              <p className="modal__text">Weather: {card.weather}</p>
+            </div>
+            <div className="modal__button-container">
+              <button
+                className="modal__delete-button"
+                type="button"
+                aria-label="delete"
+                onClick={handleDeleteItem}
+                value={card._id}
+              >
+                Delete Item
+              </button>
+            </div>
           </div>
         </div>
       </div>

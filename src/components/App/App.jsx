@@ -10,7 +10,7 @@ import ItemModal from "../ItemModal/ItemModal.jsx";
 import Profile from "../Profile/Profile.jsx";
 import AddItemModal from "../AddItemModal/AddItemModal.jsx";
 import { getWeather, processWeatherData } from "../../utils/weatherApi.js";
-import { getItems, addItems } from "../../utils/api.js";
+import { getItems, addItems, deleteItems } from "../../utils/api.js";
 import {
   coordinates,
   hawaiiCoordinates,
@@ -59,10 +59,33 @@ function App() {
     setActiveModal("");
   };
 
+  const displayItems = () => {
+    getItems()
+      .then((res) => {
+        setClothingItems(res);
+      })
+      .then(
+        clothingItems.filter((item) => {
+          return item.weather === weatherData.type;
+        })
+      );
+  };
+
   const handleAddItemSubmit = (e, values) => {
     console.log(e);
     console.log(values);
-    addItems(values);
+    addItems(values)
+      .then(() => displayItems())
+      .catch(console.error);
+  };
+
+  const handleDeleteItem = (e) => {
+    console.log(e);
+    console.log(e.target.value);
+    deleteItems(e.target.value)
+      .then(() => displayItems())
+      .catch(console.error);
+    closeActiveModal();
   };
 
   useEffect(() => {
@@ -148,6 +171,7 @@ function App() {
             activeModal={activeModal}
             card={selectedCard}
             name={"preview"}
+            handleDeleteItem={handleDeleteItem}
           />
         </div>
       </CurrentTemperatureUnitContext.Provider>

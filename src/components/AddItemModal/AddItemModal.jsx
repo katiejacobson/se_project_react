@@ -46,34 +46,34 @@ const AddItemModal = ({ activeModal, closeActiveModal, onAddItem }) => {
       <div className="modal__form-field">
         <label htmlFor="name" className="modal__label">
           Name
+          <input
+            className="modal__input"
+            name="name"
+            type="text"
+            id="name"
+            placeholder="Name"
+            required
+            minLength="2"
+            maxLength="40"
+            value={name}
+            onChange={handleNameChange}
+          />
         </label>
-        <input
-          className="modal__input"
-          name="name"
-          type="text"
-          id="name"
-          placeholder="Name"
-          required
-          minLength="2"
-          maxLength="40"
-          value={name}
-          onChange={handleNameChange}
-        />
       </div>
       <div className="modal__form-field">
         <label htmlFor="url" className="modal__label">
           Image
+          <input
+            className="modal__input"
+            type="url"
+            name="image"
+            id="url"
+            placeholder="Image URL"
+            value={imageUrl}
+            onChange={handleImageChange}
+            required
+          />
         </label>
-        <input
-          className="modal__input"
-          type="url"
-          name="image"
-          id="url"
-          placeholder="Image URL"
-          value={imageUrl}
-          onChange={handleImageChange}
-          required
-        />
       </div>
       <div className="modal__form-field">
         <p className="modal__text">Select the weather type:</p>
@@ -100,6 +100,7 @@ const AddItemModal = ({ activeModal, closeActiveModal, onAddItem }) => {
           />
           <label htmlFor="warm">Warm</label>
         </div>
+
         <div className="modal__radio-button">
           <input
             className="modal__radio-button-choice"

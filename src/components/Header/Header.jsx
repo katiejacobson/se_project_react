@@ -1,7 +1,7 @@
 import "./Header.css";
 import logo from "../../assets/logo.svg";
 import avatar from "../../assets/avatar.svg";
-import Switch from "../Switch/Switch.jsx";
+import ToggleSwitch from "../ToggleSwitch/ToggleSwitch.jsx";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
@@ -25,7 +25,7 @@ function Header({ handleAddClick, weatherData }) {
         </p>
       </div>
       <div className="header__user-container">
-        <Switch />
+        <ToggleSwitch />
         <button
           type="button"
           onClick={handleAddClick}

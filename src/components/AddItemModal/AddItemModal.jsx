@@ -5,7 +5,7 @@ import ModalWithForm from "../ModalWithForm/ModalWithForm.jsx";
 const AddItemModal = ({ activeModal, closeActiveModal, onAddItem }) => {
   const [name, setName] = useState("");
   const [imageUrl, setImageUrl] = useState("");
-  const [weather, setWeather] = useState("");
+  const [weather, setWeather] = useState("cold");
 
   const handleNameChange = (e) => {
     setName(e.target.value);
@@ -30,7 +30,7 @@ const AddItemModal = ({ activeModal, closeActiveModal, onAddItem }) => {
 
     setName("");
     setImageUrl("");
-    setWeather("");
+    setWeather("cold");
   }, [activeModal]);
 
   return (

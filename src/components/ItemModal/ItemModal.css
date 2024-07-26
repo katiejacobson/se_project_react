@@ -1,6 +1,8 @@
 .modal__container {
-  width: 498px;
-  height: 610px;
+  max-width: 498px;
+  max-height: 610px;
+  background-color: white;
+  z-index: 999;
 }
 
 .modal__close-button {
@@ -17,8 +19,7 @@
 }
 
 .modal__image {
-  width: 498px;
-  height: 498px;
+  width: 100%;
 }
 
 .modal__caption {

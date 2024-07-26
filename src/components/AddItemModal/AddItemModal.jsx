@@ -45,20 +45,20 @@ const AddItemModal = ({ activeModal, closeActiveModal, onAddItem }) => {
     >
       <div className="modal__form-field">
         <label htmlFor="name" className="modal__label">
-          Name{" "}
-          <input
-            className="modal__input"
-            name="name"
-            type="text"
-            id="name"
-            placeholder="Name"
-            required
-            minLength="2"
-            maxLength="40"
-            value={name}
-            onChange={handleNameChange}
-          />{" "}
+          Name
         </label>
+        <input
+          className="modal__input"
+          name="name"
+          type="text"
+          id="name"
+          placeholder="Name"
+          required
+          minLength="2"
+          maxLength="40"
+          value={name}
+          onChange={handleNameChange}
+        />
       </div>
       <div className="modal__form-field">
         <label htmlFor="url" className="modal__label">
@@ -72,6 +72,7 @@ const AddItemModal = ({ activeModal, closeActiveModal, onAddItem }) => {
           placeholder="Image URL"
           value={imageUrl}
           onChange={handleImageChange}
+          required
         />
       </div>
       <div className="modal__form-field">
@@ -84,6 +85,7 @@ const AddItemModal = ({ activeModal, closeActiveModal, onAddItem }) => {
             id="hot"
             value="hot"
             onChange={handleWeatherChange}
+            required
           />
           <label htmlFor="hot">Hot</label>
         </div>
@@ -106,6 +108,7 @@ const AddItemModal = ({ activeModal, closeActiveModal, onAddItem }) => {
             id="cold"
             value="cold"
             onChange={handleWeatherChange}
+            checked
           />
           <label htmlFor="cold">Cold</label>
         </div>

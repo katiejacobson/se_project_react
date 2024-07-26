@@ -1,6 +1,14 @@
 import "./ItemModal.css";
+import ConfirmationModal from "../ConfirmationModal/ConfirmationModal.jsx";
 
-function ItemModal({ activeModal, card, name, handleDeleteItem }) {
+function ItemModal({
+  activeModal,
+  card,
+  name,
+  handleDeleteItem,
+  openConfirmationModal,
+  closeActiveModal,
+}) {
   return (
     <>
       <div
@@ -25,7 +33,7 @@ function ItemModal({ activeModal, card, name, handleDeleteItem }) {
                 className="modal__delete-button"
                 type="button"
                 aria-label="delete"
-                onClick={handleDeleteItem}
+                onClick={openConfirmationModal}
                 value={card._id}
               >
                 Delete Item
@@ -34,6 +42,14 @@ function ItemModal({ activeModal, card, name, handleDeleteItem }) {
           </div>
         </div>
       </div>
+
+      <ConfirmationModal
+        name={"delete-confirmation"}
+        handleDeleteItem={handleDeleteItem}
+        handleCloseClick={closeActiveModal}
+        cardId={card._id}
+        activeModal={activeModal}
+      />
     </>
   );
 }

@@ -1,0 +1,30 @@
+.confirmation-modal__container {
+  display: flex;
+  flex-direction: column;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.confirmation-modal__text {
+  text-align: center;
+}
+
+.confirmation-modal__delete-button {
+  border: none;
+  color: #ff4d00;
+  font-weight: 700;
+  background-color: transparent;
+  cursor: pointer;
+  padding: 0;
+  margin-top: 40px;
+}
+
+.confirmation-modal__cancel-button {
+  border: none;
+  color: #000000;
+  font-weight: 700;
+  background-color: transparent;
+  cursor: pointer;
+  padding: 0;
+  margin-top: 20px;
+}

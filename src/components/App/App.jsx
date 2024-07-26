@@ -9,6 +9,7 @@ import ModalWithForm from "../ModalWithForm/ModalWithForm.jsx";
 import ItemModal from "../ItemModal/ItemModal.jsx";
 import Profile from "../Profile/Profile.jsx";
 import AddItemModal from "../AddItemModal/AddItemModal.jsx";
+import ConfirmationModal from "../ConfirmationModal/ConfirmationModal.jsx";
 import { getWeather, processWeatherData } from "../../utils/weatherApi.js";
 import { getItems, addItems, deleteItems } from "../../utils/api.js";
 import {
@@ -59,11 +60,13 @@ function App() {
     setActiveModal("");
   };
 
+  const openConfirmationModal = () => {
+    setActiveModal("delete-item");
+  };
+
   const displayItems = () => {
     getItems()
-      .then((res) => {
-        setClothingItems(res);
-      })
+      .then((res) => setClothingItems(res))
       .then(
         clothingItems.filter((item) => {
           return item.weather === weatherData.type;
@@ -72,18 +75,16 @@ function App() {
   };
 
   const handleAddItemSubmit = (e, values) => {
-    console.log(e);
-    console.log(values);
     addItems(values)
       .then(() => displayItems())
       .catch(console.error);
   };
 
-  const handleDeleteItem = (e) => {
-    console.log(e);
-    console.log(e.target.value);
-    deleteItems(e.target.value)
-      .then(() => displayItems())
+  const handleDeleteItem = (id) => {
+    deleteItems(id)
+      .then(() => {
+        displayItems();
+      })
       .catch(console.error);
     closeActiveModal();
   };
@@ -116,7 +117,7 @@ function App() {
   }, [activeModal]);
 
   useEffect(() => {
-    getWeather(manilaCoordinates, APIkey)
+    getWeather(coordinates, APIkey)
       .then((res) => {
         const currentWeather = processWeatherData(res);
         setWeatherData(currentWeather);
@@ -172,6 +173,8 @@ function App() {
             card={selectedCard}
             name={"preview"}
             handleDeleteItem={handleDeleteItem}
+            openConfirmationModal={openConfirmationModal}
+            closeActiveModal={closeActiveModal}
           />
         </div>
       </CurrentTemperatureUnitContext.Provider>

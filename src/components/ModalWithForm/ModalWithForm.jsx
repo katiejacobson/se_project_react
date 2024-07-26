@@ -23,12 +23,7 @@ function ModalWithForm({
             aria-label="close"
           />
           <h2 className="modal__heading">{title}</h2>
-          <form
-            onSubmit={onSubmit}
-            className="modal__form"
-            name={name}
-            noValidate
-          >
+          <form onSubmit={onSubmit} className="modal__form" name={name}>
             {children}
             <button className="modal__button" type="submit" aria-label="submit">
               {buttonText}

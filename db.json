@@ -103,76 +103,16 @@
       "imageUrl": "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/wtwr-project/T-Shirt.png?etag=44ed1963c44ab19cd2f5011522c5fc09"
     },
     {
-      "name": "bathing suit",
-      "imageUrl": "https://suuksess.com/cdn/shop/products/Green_Tankini_Bathing_Suit_Suuksess_2.jpg?v=1692351954&width=1600",
-      "weather": "hot",
-      "_id": 17
-    },
-    {
-      "name": "vest",
-      "imageUrl": "https://i5.walmartimages.com/asr/9add1786-dcd3-495b-a71c-8d3926f616ce.e189000f065e1bde5db831db9d01d701.jpeg",
-      "weather": "warm",
-      "_id": 18
-    },
-    {
-      "name": "hat",
-      "imageUrl": "https://palmettoshirtco.com/cdn/shop/products/clemsonhat_1400x_44f7ed23-92f8-4383-9ba6-ba9ce8578448_1200x.progressive.jpg?v=1537986449",
-      "weather": "",
-      "_id": 19
-    },
-    {
-      "name": "hat",
-      "imageUrl": "https://images.footballfanatics.com/clemson-tigers/mens-new-era-orange-clemson-tigers-primary-team-logo-basic-59fifty-fitted-hat_pi4181000_ff_4181311-9d156d98c3239d4b9968_full.jpg?_hv=2",
-      "weather": "",
-      "_id": 20
-    },
-    {
-      "name": "hat",
-      "imageUrl": "https://images.footballfanatics.com/clemson-tigers/mens-new-era-orange-clemson-tigers-primary-team-logo-basic-59fifty-fitted-hat_pi4181000_ff_4181311-9d156d98c3239d4b9968_full.jpg?_hv=2",
-      "weather": "",
-      "_id": 21
-    },
-    {
-      "name": "hat",
-      "imageUrl": "https://images.footballfanatics.com/clemson-tigers/mens-new-era-orange-clemson-tigers-primary-team-logo-basic-59fifty-fitted-hat_pi4181000_ff_4181311-9d156d98c3239d4b9968_full.jpg?_hv=2",
-      "weather": "",
-      "_id": 22
-    },
-    {
-      "name": "hat",
-      "imageUrl": "https://images.footballfanatics.com/clemson-tigers/mens-new-era-orange-clemson-tigers-primary-team-logo-basic-59fifty-fitted-hat_pi4181000_ff_4181311-9d156d98c3239d4b9968_full.jpg?_hv=2",
-      "weather": "",
-      "_id": 23
-    },
-    {
       "name": "hat",
       "imageUrl": "https://images.footballfanatics.com/clemson-tigers/mens-new-era-orange-clemson-tigers-primary-team-logo-basic-59fifty-fitted-hat_pi4181000_ff_4181311-9d156d98c3239d4b9968_full.jpg?_hv=2",
       "weather": "warm",
       "_id": 24
     },
     {
-      "name": "bathing suit",
-      "imageUrl": "https://suuksess.com/cdn/shop/products/Green_Tankini_Bathing_Suit_Suuksess_2.jpg?v=1692351954&width=1600",
-      "weather": "hot",
-      "_id": 25
-    },
-    {
-      "name": "bathing suit",
-      "imageUrl": "https://suuksess.com/cdn/shop/products/Green_Tankini_Bathing_Suit_Suuksess_2.jpg?v=1692351954&width=1600",
-      "weather": "cold",
-      "_id": 26
-    },
-    {
-      "name": "bathing suit",
-      "imageUrl": "https://suuksess.com/cdn/shop/products/Green_Tankini_Bathing_Suit_Suuksess_2.jpg?v=1692351954&width=1600",
+      "name": "vest",
+      "imageUrl": "https://i5.walmartimages.com/asr/9add1786-dcd3-495b-a71c-8d3926f616ce.e189000f065e1bde5db831db9d01d701.jpeg",
       "weather": "warm",
-      "_id": 27
-    },
-    {
-      "name": "bathing suit",
-      "imageUrl": "https://suuksess.com/cdn/shop/products/Green_Tankini_Bathing_Suit_Suuksess_2.jpg?v=1692351954&width=1600",
-      "weather": "cold",
-      "_id": 28
+      "_id": 25
     }
   ]
 }

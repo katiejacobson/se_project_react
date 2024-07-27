@@ -1,3 +1,5 @@
+const baseUrl = "http://localhost:3001";
+
 function renderResult(res) {
   if (res.ok) {
     return res.json();
@@ -7,11 +9,11 @@ function renderResult(res) {
 }
 
 export const getItems = () => {
-  return fetch("http://localhost:3001/items/").then((res) => renderResult(res));
+  return fetch(`${baseUrl}/items/`).then((res) => renderResult(res));
 };
 
 export const addItems = (data) => {
-  return fetch("http://localhost:3001/items/", {
+  return fetch(`${baseUrl}/items/`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
@@ -19,11 +21,13 @@ export const addItems = (data) => {
       imageUrl: data.imageUrl,
       weather: data.weather,
     }),
-  });
+  }).then((res) => renderResult(res));
 };
 
 export const deleteItems = (id) => {
-  return fetch(`http://localhost:3001/items/${id}`, {
+  return fetch(`${baseUrl}/items/${id}`, {
     method: "DELETE",
-  });
+  }).then((res) => renderResult(res));
 };
+
+export { renderResult };

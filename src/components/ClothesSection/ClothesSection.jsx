@@ -21,19 +21,15 @@ function ClothesSection({
       </div>
       <div className="clothes-section__item-container">
         <ul className="clothes-section__cards">
-          {clothingItems
-            .filter((item) => {
-              return item.weather === weatherData.type;
-            })
-            .map((item) => {
-              return (
-                <ItemCard
-                  key={item._id}
-                  item={item}
-                  onCardClick={handleCardClick}
-                />
-              );
-            })}
+          {clothingItems.map((item) => {
+            return (
+              <ItemCard
+                key={item._id}
+                item={item}
+                onCardClick={handleCardClick}
+              />
+            );
+          })}
         </ul>
       </div>
     </div>

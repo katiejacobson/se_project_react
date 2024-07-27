@@ -1,10 +1,4 @@
-function renderResult(res) {
-  if (res.ok) {
-    return res.json();
-  } else {
-    return Promise.reject(`'Error:' ${res.status}`);
-  }
-}
+import { renderResult } from "./api.js";
 
 function getWeatherDescription(temp) {
   if (temp >= 86) {

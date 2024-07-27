@@ -9,6 +9,7 @@ import ModalWithForm from "../ModalWithForm/ModalWithForm.jsx";
 import ItemModal from "../ItemModal/ItemModal.jsx";
 import Profile from "../Profile/Profile.jsx";
 import AddItemModal from "../AddItemModal/AddItemModal.jsx";
+import ItemCard from "../ItemCard/ItemCard.jsx";
 import ConfirmationModal from "../ConfirmationModal/ConfirmationModal.jsx";
 import { getWeather, processWeatherData } from "../../utils/weatherApi.js";
 import { getItems, addItems, deleteItems } from "../../utils/api.js";
@@ -64,29 +65,22 @@ function App() {
     setActiveModal("delete-item");
   };
 
-  const displayItems = () => {
-    getItems()
-      .then((res) => setClothingItems(res))
-      .then(
-        clothingItems.filter((item) => {
-          return item.weather === weatherData.type;
-        })
-      );
-  };
-
   const handleAddItemSubmit = (e, values) => {
     addItems(values)
-      .then(() => displayItems())
+      .then((res) => {
+        setClothingItems([res, ...clothingItems]);
+        closeActiveModal();
+      })
       .catch(console.error);
   };
 
   const handleDeleteItem = (id) => {
     deleteItems(id)
       .then(() => {
-        displayItems();
+        setClothingItems(clothingItems.filter((item) => item._id !== id));
+        closeActiveModal();
       })
       .catch(console.error);
-    closeActiveModal();
   };
 
   useEffect(() => {

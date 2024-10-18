@@ -2,7 +2,7 @@ import "./Header.css";
 import logo from "../../assets/logo.svg";
 import avatar from "../../assets/avatar.svg";
 import ToggleSwitch from "../ToggleSwitch/ToggleSwitch.jsx";
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import CurrentUserContext from "../../contexts/CurrentUserContext.js";
 
@@ -16,6 +16,9 @@ function Header({ handleAddClick, weatherData }) {
   }
 
   const { currentUser, isLoggedIn } = useContext(CurrentUserContext);
+  console.log(currentUser);
+
+  const displayAvatar = () => {};
 
   return (
     <header className="header">
@@ -40,12 +43,18 @@ function Header({ handleAddClick, weatherData }) {
             </button>
             <Link to="/profile">
               <div className="header__profile-info">
-                <p className="header__username">{currentUser.username}</p>
-                <img
-                  className="header__avatar"
-                  src={currentUser.avatarUrl}
-                  alt="avatar"
-                />
+                <p className="header__username">{currentUser?.username}</p>
+                {currentUser?.avatarUrl ? (
+                  <img
+                    className="header__avatar"
+                    src={currentUser?.avatarUrl}
+                    alt={currentUser?.username}
+                  />
+                ) : (
+                  <p className="header__default-avatar">
+                    {currentUser?.username[0].toUpperCase()}
+                  </p>
+                )}
               </div>
             </Link>
           </div>

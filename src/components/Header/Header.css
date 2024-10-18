@@ -51,6 +51,7 @@ a {
 .header__profile-info {
   display: flex;
   flex-direction: row;
+  align-items: baseline;
 }
 
 .header__username {
@@ -61,4 +62,18 @@ a {
 .header__avatar {
   height: 40px;
   width: 40px;
+}
+
+.header__default-avatar {
+  border-style: solid;
+  border-color: black;
+  width: 40px;
+  height: 40px;
+  border-radius: 100%;
+  background-color: #ffffff;
+  font-size: 28px;
+  text-align: center;
+  margin-top: 0;
+  vertical-align: middle;
+  line-height: 40px;
 }

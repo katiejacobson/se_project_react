@@ -110,7 +110,6 @@ const RegisterModal = ({
             placeholder="Avatar URL"
             value={data.avatarUrl}
             onChange={handleChange}
-            required
           />
         </label>
       </div>

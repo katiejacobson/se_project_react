@@ -8,7 +8,7 @@ function Sidebar({ currentUser, handleEditProfileClick, handleLogOut }) {
       <div className="sidebar__profile">
         {!currentUser.avatarUrl ? (
           <p className="sidebar__default-avatar">
-            {currentUser.username[0].toUpperCase()}
+            {currentUser.username ? currentUser.username[0].toUpperCase() : ""}
           </p>
         ) : (
           <img

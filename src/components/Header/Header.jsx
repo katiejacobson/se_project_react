@@ -50,11 +50,13 @@ function Header({ handleAddClick, weatherData }) {
                     src={currentUser?.avatarUrl}
                     alt={currentUser?.username}
                   />
-                ) : (
+                ) : currentUser ? (
                   <p className="header__default-avatar">
-                    {currentUser?.username[0].toUpperCase()}
+                    {currentUser.username
+                      ? currentUser.username[0].toUpperCase()
+                      : ""}
                   </p>
-                )}
+                ) : null}
               </div>
             </Link>
           </div>

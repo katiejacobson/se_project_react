@@ -7,11 +7,22 @@ function Profile({
   handleCardClick,
   handleAddClick,
   clothingItems,
+  currentUser,
+  closeActiveModal,
+  handleEditProfileClick,
+  handleLogOut,
+  onCardLike,
+  isLoggedIn,
 }) {
   return (
     <div className="profile">
       <section className="profile__sidebar">
-        <Sidebar />
+        <Sidebar
+          currentUser={currentUser}
+          handleEditProfileClick={handleEditProfileClick}
+          closeActiveModal={closeActiveModal}
+          handleLogOut={handleLogOut}
+        />
       </section>
       <section className="profile__clothes-section">
         <ClothesSection
@@ -19,6 +30,8 @@ function Profile({
           handleCardClick={handleCardClick}
           handleAddClick={handleAddClick}
           clothingItems={clothingItems}
+          onCardLike={onCardLike}
+          isLoggedIn={isLoggedIn}
         />
       </section>
     </div>

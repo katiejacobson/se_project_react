@@ -48,3 +48,7 @@
   font-weight: 700;
   background-color: transparent;
 }
+
+.modal__delete-button_hidden {
+  visibility: hidden;
+}

@@ -1,8 +1,9 @@
-.sidebar {
+.sidebar__profile {
   display: flex;
   flex-direction: row;
   width: 230px;
   justify-content: space-between;
+  margin-bottom: 24px;
 }
 
 .sidebar__image {
@@ -13,4 +14,18 @@
 .sidebar__username {
   font-size: 20px;
   font-weight: 700;
+}
+
+.sidebar__button-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar__button {
+  margin-bottom: 8px;
+  border-color: transparent;
+}
+
+.sidebar__button:hover {
+  cursor: pointer;
 }

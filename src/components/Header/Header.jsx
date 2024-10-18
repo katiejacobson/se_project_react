@@ -2,8 +2,9 @@ import "./Header.css";
 import logo from "../../assets/logo.svg";
 import avatar from "../../assets/avatar.svg";
 import ToggleSwitch from "../ToggleSwitch/ToggleSwitch.jsx";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { Link } from "react-router-dom";
+import CurrentUserContext from "../../contexts/CurrentUserContext.js";
 
 function Header({ handleAddClick, weatherData }) {
   function getDate() {
@@ -13,6 +14,8 @@ function Header({ handleAddClick, weatherData }) {
     });
     return currentDate;
   }
+
+  const { currentUser, isLoggedIn } = useContext(CurrentUserContext);
 
   return (
     <header className="header">
@@ -26,19 +29,34 @@ function Header({ handleAddClick, weatherData }) {
       </div>
       <div className="header__user-container">
         <ToggleSwitch />
-        <button
-          type="button"
-          onClick={handleAddClick}
-          className="header__add-clothes-btn"
-        >
-          + Add Clothes
-        </button>
-        <Link to="/profile">
-          <div className="header__profile-info">
-            <p className="header__username">Terrence Tegegne</p>
-            <img className="header__avatar" src={avatar} alt="avatar" />
+        {isLoggedIn ? (
+          <div className="header__user-container">
+            <button
+              type="button"
+              onClick={handleAddClick}
+              className="header__add-clothes-btn"
+            >
+              + Add Clothes
+            </button>
+            <Link to="/profile">
+              <div className="header__profile-info">
+                <p className="header__username">{currentUser.username}</p>
+                <img
+                  className="header__avatar"
+                  src={currentUser.avatarUrl}
+                  alt="avatar"
+                />
+              </div>
+            </Link>
           </div>
-        </Link>
+        ) : (
+          <div className="header__user-container">
+            <div className="header__register-and-login">
+              <Link to="/signup">Sign Up</Link>
+              <Link to="/signin">Log In</Link>
+            </div>
+          </div>
+        )}
       </div>
     </header>
   );

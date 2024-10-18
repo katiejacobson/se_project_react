@@ -1,4 +1,5 @@
 import "./ModalWithForm.css";
+import { useNavigate } from "react-router-dom";
 
 function ModalWithForm({
   children,
@@ -10,13 +11,20 @@ function ModalWithForm({
   isOpen,
   onSubmit,
 }) {
+  const navigate = useNavigate();
+
+  const backToHome = () => {
+    handleCloseClick();
+    navigate("/");
+  };
+
   return (
     <div className={`modal modal_type_${name} ${isOpen ? "modal_opened" : ""}`}>
       <div className="modal__container">
         <button
           className="modal__close-button"
           type="button"
-          onClick={handleCloseClick}
+          onClick={backToHome}
           aria-label="close"
         />
         <h2 className="modal__heading">{title}</h2>

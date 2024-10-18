@@ -57,7 +57,7 @@
 
 .modal__heading {
   font-size: 16px;
-  margin: 20px 0 24px;
+  margin: 0 0 24px;
 }
 
 .modal__input {
@@ -86,7 +86,7 @@
 }
 
 .modal__button {
-  margin-top: 32px;
+  margin-top: 6px;
   margin-bottom: 6px;
   background-color: rgba(0, 0, 0, 0.3);
   color: #ffffff;
@@ -96,4 +96,8 @@
   height: 36px;
   width: 124px;
   border-radius: 4px;
+}
+
+.modal__form-field {
+  margin-bottom: 24px;
 }

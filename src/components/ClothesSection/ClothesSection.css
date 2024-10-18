@@ -17,6 +17,10 @@
   border: none;
 }
 
+.clothes-section__add-items-button:hover {
+  cursor: pointer;
+}
+
 .clothes-section__cards {
   list-style-type: none;
   display: flex;

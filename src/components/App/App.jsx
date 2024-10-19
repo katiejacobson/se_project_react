@@ -5,15 +5,12 @@ import "./App.css";
 import Header from "../Header/Header.jsx";
 import Main from "../Main/Main.jsx";
 import Footer from "../Footer/Footer.jsx";
-import ModalWithForm from "../ModalWithForm/ModalWithForm.jsx";
 import ItemModal from "../ItemModal/ItemModal.jsx";
 import Profile from "../Profile/Profile.jsx";
 import AddItemModal from "../AddItemModal/AddItemModal.jsx";
 import RegisterModal from "../RegisterModal/RegisterModal.jsx";
 import LoginModal from "../LoginModal/LoginModal.jsx";
 import * as auth from "../../utils/auth.js";
-import ItemCard from "../ItemCard/ItemCard.jsx";
-import ConfirmationModal from "../ConfirmationModal/ConfirmationModal.jsx";
 import EditProfileModal from "../EditProfileModal/EditProfileModal.jsx";
 import { getWeather, processWeatherData } from "../../utils/weatherApi.js";
 import {
@@ -30,7 +27,6 @@ import {
   icelandCoordinates,
   APIkey,
 } from "../../utils/constants.js";
-import { setToken, getToken, removeToken } from "../../utils/token.js";
 
 import { CurrentTemperatureUnitContext } from "../../contexts/CurrentTemperatureUnitContext.js";
 import ProtectedRoute from "../ProtectedRoute/ProtectedRoute.jsx";
@@ -106,7 +102,6 @@ function App() {
 
   const handleCardLike = (id, isLiked) => {
     const token = localStorage.getItem("jwt");
-    console.log(id);
 
     !isLiked
       ? addCardLike(id, token)
@@ -143,7 +138,6 @@ function App() {
           localStorage.setItem("jwt", data.token);
           closeActiveModal();
           setIsLoggedIn(true);
-          navigate("/profile");
         }
       })
       .catch(console.error);
@@ -202,7 +196,7 @@ function App() {
           avatarUrl: avatar,
           _id: _id,
         });
-        navigate("/profile");
+        navigate("/");
       })
       .catch(console.error);
   }, [isLoggedIn]);

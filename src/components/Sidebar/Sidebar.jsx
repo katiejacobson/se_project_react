@@ -1,6 +1,4 @@
 import "./Sidebar.css";
-import avatar from "../../assets/avatar.svg";
-import EditProfileModal from "../EditProfileModal/EditProfileModal.jsx";
 
 function Sidebar({ currentUser, handleEditProfileClick, handleLogOut }) {
   return (

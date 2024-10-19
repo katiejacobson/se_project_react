@@ -16,9 +16,6 @@ function Header({ handleAddClick, weatherData }) {
   }
 
   const { currentUser, isLoggedIn } = useContext(CurrentUserContext);
-  console.log(currentUser);
-
-  const displayAvatar = () => {};
 
   return (
     <header className="header">

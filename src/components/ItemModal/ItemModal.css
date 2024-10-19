@@ -1,11 +1,17 @@
-.modal__container {
+.item-modal__container {
+  position: relative;
   max-width: 498px;
   max-height: 610px;
-  background-color: white;
+  background-color: #ffffff;
   z-index: 999;
+  margin: auto;
+  padding: 28px;
+  border: 1px;
+  border-radius: 20px;
+  justify-content: center;
 }
 
-.modal__close-button {
+.item-modal__close-button {
   position: absolute;
   top: 20px;
   right: 28px;
@@ -18,37 +24,38 @@
   border: none;
 }
 
-.modal__image {
+.item-modal__image {
   width: 100%;
   max-height: 480px;
 }
 
-.modal__caption {
+.item-modal__caption {
   display: flex;
   justify-content: space-between;
+  background-color: #ffffff;
 }
 
-.modal__title {
+.item-modal__title {
   font-size: 20px;
   margin-top: 20px;
   margin-bottom: 12px;
 }
 
-.modal__text {
+.item-modal__text {
   font-size: 20px;
 }
 
-.modal__button-container {
+.item-modal__button-container {
   margin-top: 20px;
 }
 
-.modal__delete-button {
+.item-modal__delete-button {
   border: none;
   color: #ff4d00;
   font-weight: 700;
   background-color: transparent;
 }
 
-.modal__delete-button_hidden {
+.item-modal__delete-button_hidden {
   visibility: hidden;
 }

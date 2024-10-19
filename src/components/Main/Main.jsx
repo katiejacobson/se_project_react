@@ -4,10 +4,6 @@ import WeatherCard from "../WeatherCard/WeatherCard.jsx";
 import ItemCard from "../ItemCard/ItemCard.jsx";
 import { CurrentTemperatureUnitContext } from "../../contexts/CurrentTemperatureUnitContext.js";
 
-function checkVariables(data) {
-  console.log(data);
-}
-
 function Main({
   weatherData,
   handleCardClick,

@@ -14,8 +14,8 @@ function ItemModal({
   const { currentUser } = useContext(CurrentUserContext);
   const isOwn = card.owner === currentUser._id;
 
-  const modalDeleteButtonClassName = `modal__delete-button ${
-    isOwn ? "modal__delete-button" : "modal__delete-button_hidden"
+  const modalDeleteButtonClassName = `item-modal__delete-button ${
+    isOwn ? "item-modal__delete-button" : "item-modal__delete-button_hidden"
   }`;
 
   return (
@@ -25,19 +25,24 @@ function ItemModal({
           activeModal === "preview" ? "modal_opened" : ""
         }`}
       >
-        <div className="modal__container">
+        <div className="item-modal__container">
           <button
-            className="modal__close-button"
+            className="item-modal__close-button"
             type="button"
             aria-label="close"
+            onClick={closeActiveModal}
           ></button>
-          <img className="modal__image" src={card.imageUrl} alt={card.name} />
-          <div className="modal__caption">
-            <div className="modal__info">
-              <h2 className="modal__title">{card.name}</h2>
-              <p className="modal__text">Weather: {card.weather}</p>
+          <img
+            className="item-modal__image"
+            src={card.imageUrl}
+            alt={card.name}
+          />
+          <div className="item-modal__caption">
+            <div className="item-modal__info">
+              <h2 className="item-modal__title">{card.name}</h2>
+              <p className="item-modal__text">Weather: {card.weather}</p>
             </div>
-            <div className="modal__button-container">
+            <div className="item-modal__button-container">
               <button
                 className={modalDeleteButtonClassName}
                 type="button"

@@ -6,15 +6,12 @@ function ItemCard({ item, onCardClick, onCardLike, isLoggedIn }) {
   const { currentUser } = useContext(CurrentUserContext);
 
   const handleCardClick = () => {
-    console.log(item);
     onCardClick(item);
   };
 
   const isLiked = item.likes.some((id) => id === currentUser._id);
 
   const handleLike = () => {
-    console.log("Click");
-    console.log(item);
     onCardLike(item._id, isLiked);
   };
 

@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "http://katiejacobson.github.io/se_project_react",
+  "homepage": "http://katiejacobson.github.io/se_project_react/",
   "scripts": {
     "dev": "vite --open",
     "build": "vite build",

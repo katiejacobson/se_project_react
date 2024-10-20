@@ -1,11 +1,10 @@
 import "./ClothesSection.css";
 import ItemCard from "../ItemCard/ItemCard.jsx";
 import { defaultClothingItems } from "../../utils/constants";
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import CurrentUserContext from "../../contexts/CurrentUserContext.js";
 
 function ClothesSection({
-  weatherData,
   handleCardClick,
   handleAddClick,
   clothingItems,

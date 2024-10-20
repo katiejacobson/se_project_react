@@ -19,6 +19,8 @@ const AddItemModal = ({ activeModal, closeActiveModal, onAddItem }) => {
     setWeather(e.target.value);
   };
 
+  const isFormValid = name && imageUrl;
+
   const handleSubmit = (e) => {
     e.preventDefault();
     onAddItem(e, { name, imageUrl, weather });
@@ -35,7 +37,6 @@ const AddItemModal = ({ activeModal, closeActiveModal, onAddItem }) => {
   return (
     <ModalWithForm
       title="New garment"
-      buttonText="Add garment"
       activeModal={activeModal}
       handleCloseClick={closeActiveModal}
       name={"new-garment"}
@@ -113,6 +114,14 @@ const AddItemModal = ({ activeModal, closeActiveModal, onAddItem }) => {
           <label htmlFor="cold">Cold</label>
         </div>
       </div>
+      <button
+        className="modal__button-main"
+        type="submit"
+        aria-label="submit"
+        disabled={!isFormValid}
+      >
+        Add garment
+      </button>
     </ModalWithForm>
   );
 };

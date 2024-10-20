@@ -11,6 +11,7 @@ const EditProfileModal = ({
   const [data, setData] = useState({
     name: currentUser.username,
     avatar: currentUser.avatarUrl,
+    _id: currentUser._id,
   });
 
   const handleChange = (e) => {
@@ -27,22 +28,22 @@ const EditProfileModal = ({
     const updatedData = {
       name: data.name || currentUser.username,
       avatar: data.avatar || currentUser.avatarUrl,
+      _id: data._id || currentUser._id,
     };
-    console.log(updatedData);
     handleEditProfile(updatedData);
   };
 
   useEffect(() => {
     setData({
-      name: currentUser.username || "",
-      avatar: currentUser.avatarUrl || "",
+      name: currentUser.username,
+      avatar: currentUser.avatarUrl,
+      _id: currentUser._id,
     });
   }, [currentUser]);
 
   return (
     <ModalWithForm
       title="Change profile data"
-      buttonText="Change profile data"
       activeModal={activeModal}
       handleCloseClick={closeActiveModal}
       name={"edit-profile"}
@@ -79,6 +80,9 @@ const EditProfileModal = ({
           />
         </label>
       </div>
+      <button className="modal__button-main" type="submit" aria-label="submit">
+        Change profile data
+      </button>
     </ModalWithForm>
   );
 };

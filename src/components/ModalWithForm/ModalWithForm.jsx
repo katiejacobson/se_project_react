@@ -3,7 +3,6 @@ import { useNavigate } from "react-router-dom";
 
 function ModalWithForm({
   children,
-  buttonText,
   title,
   activeModal,
   handleCloseClick,
@@ -30,9 +29,9 @@ function ModalWithForm({
         <h2 className="modal__heading">{title}</h2>
         <form onSubmit={onSubmit} className="modal__form" name={name}>
           {children}
-          <button className="modal__button" type="submit" aria-label="submit">
+          {/* <button className="modal__button" type="submit" aria-label="submit">
             {buttonText}
-          </button>
+          </button> */}
         </form>
       </div>
     </div>

@@ -2,11 +2,18 @@ import React, { useState, useEffect } from "react";
 import ModalWithForm from "../ModalWithForm/ModalWithForm.jsx";
 import "./LoginModal.css";
 
-const LoginModal = ({ activeModal, closeActiveModal, handleLogIn }) => {
+const LoginModal = ({
+  activeModal,
+  closeActiveModal,
+  handleLogIn,
+  handleSignUpClick,
+}) => {
   const [data, setData] = useState({
     email: "",
     password: "",
   });
+
+  const isFormValid = data.email && data.password;
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -33,7 +40,6 @@ const LoginModal = ({ activeModal, closeActiveModal, handleLogIn }) => {
   return (
     <ModalWithForm
       title="Log In"
-      buttonText="Log In"
       activeModal={activeModal}
       handleCloseClick={closeActiveModal}
       name={"login"}
@@ -71,6 +77,24 @@ const LoginModal = ({ activeModal, closeActiveModal, handleLogIn }) => {
             required
           />
         </label>
+      </div>
+      <div className="modal__button-container">
+        <button
+          className="modal__button-main"
+          type="submit"
+          aria-label="submit"
+          disabled={!isFormValid}
+        >
+          Log In
+        </button>
+        <button
+          className="modal__button-alternative"
+          type="button"
+          aria-label="button"
+          onClick={handleSignUpClick}
+        >
+          or Sign Up
+        </button>
       </div>
     </ModalWithForm>
   );

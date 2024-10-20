@@ -6,7 +6,12 @@ import { useState, useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import CurrentUserContext from "../../contexts/CurrentUserContext.js";
 
-function Header({ handleAddClick, weatherData }) {
+function Header({
+  handleAddClick,
+  weatherData,
+  handleSignUpClick,
+  handleLogInClick,
+}) {
   function getDate() {
     const currentDate = new Date().toLocaleString("default", {
       month: "long",
@@ -34,7 +39,7 @@ function Header({ handleAddClick, weatherData }) {
             <button
               type="button"
               onClick={handleAddClick}
-              className="header__add-clothes-btn"
+              className="header__button"
             >
               + Add Clothes
             </button>
@@ -60,8 +65,20 @@ function Header({ handleAddClick, weatherData }) {
         ) : (
           <div className="header__user-container">
             <div className="header__register-and-login">
-              <Link to="/signup">Sign Up</Link>
-              <Link to="/signin">Log In</Link>
+              <button
+                type="button"
+                className="header__button"
+                onClick={handleSignUpClick}
+              >
+                Sign Up
+              </button>
+              <button
+                type="button"
+                className="header__button"
+                onClick={handleLogInClick}
+              >
+                Log In
+              </button>
             </div>
           </div>
         )}

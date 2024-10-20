@@ -82,6 +82,14 @@ function App() {
     setActiveModal("delete-item");
   };
 
+  const handleSignUpClick = () => {
+    setActiveModal("register");
+  };
+
+  const handleLogInClick = () => {
+    setActiveModal("login");
+  };
+
   const handleAddItemSubmit = (e, values) => {
     addItems(values)
       .then((res) => {
@@ -147,9 +155,14 @@ function App() {
     setActiveModal("edit-profile");
   };
 
-  const handleEditProfile = ({ name, avatar }) => {
+  const handleEditProfile = ({ name, avatar, _id }) => {
     const jwt = localStorage.getItem("jwt");
-    console.log("inside handleEditProfile");
+    setCurrentUser((prevUser) => ({
+      ...prevUser,
+      name,
+      avatar,
+      _id,
+    }));
     if (!jwt) {
       return;
     }
@@ -160,11 +173,11 @@ function App() {
         setCurrentUser({
           username: name,
           avatarUrl: avatar,
+          _id: _id,
         });
       })
       .then(() => {
         closeActiveModal();
-        navigate("/profile");
       })
       .catch(console.error);
   };
@@ -251,7 +264,12 @@ function App() {
           value={{ currentTemperatureUnit, handleToggleSwitchChange }}
         >
           <div className="page__content">
-            <Header handleAddClick={handleAddClick} weatherData={weatherData} />
+            <Header
+              handleAddClick={handleAddClick}
+              weatherData={weatherData}
+              handleSignUpClick={handleSignUpClick}
+              handleLogInClick={handleLogInClick}
+            />
             <Routes>
               <Route
                 path="/"
@@ -275,7 +293,6 @@ function App() {
                       handleCardClick={handleCardClick}
                       handleAddClick={handleAddClick}
                       clothingItems={clothingItems}
-                      currentUser={currentUser}
                       handleCloseClick={closeActiveModal}
                       closeActiveModal={closeActiveModal}
                       handleEditProfileClick={handleEditProfileClick}
@@ -284,28 +301,6 @@ function App() {
                       isLoggedIn={isLoggedIn}
                     />
                   </ProtectedRoute>
-                }
-              />
-              <Route
-                path="/signup"
-                element={
-                  <RegisterModal
-                    activeModal="register"
-                    handleCloseClick={closeActiveModal}
-                    handleRegistration={handleRegistration}
-                    closeActiveModal={closeActiveModal}
-                  />
-                }
-              />
-              <Route
-                path="/signin"
-                element={
-                  <LoginModal
-                    activeModal="login"
-                    handleCloseClick={closeActiveModal}
-                    closeActiveModal={closeActiveModal}
-                    handleLogIn={handleLogIn}
-                  />
                 }
               />
             </Routes>
@@ -329,6 +324,20 @@ function App() {
               handleCloseClick={closeActiveModal}
               handleEditProfile={handleEditProfile}
               closeActiveModal={closeActiveModal}
+            />
+            <RegisterModal
+              activeModal={activeModal}
+              handleCloseClick={closeActiveModal}
+              handleRegistration={handleRegistration}
+              closeActiveModal={closeActiveModal}
+              handleLogInClick={handleLogInClick}
+            />
+            <LoginModal
+              activeModal={activeModal}
+              handleCloseClick={closeActiveModal}
+              closeActiveModal={closeActiveModal}
+              handleLogIn={handleLogIn}
+              handleSignUpClick={handleSignUpClick}
             />
           </div>
         </CurrentTemperatureUnitContext.Provider>

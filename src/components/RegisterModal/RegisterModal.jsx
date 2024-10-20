@@ -6,6 +6,7 @@ const RegisterModal = ({
   activeModal,
   closeActiveModal,
   handleRegistration,
+  handleLogInClick,
 }) => {
   const [data, setData] = useState({
     email: "",
@@ -13,6 +14,9 @@ const RegisterModal = ({
     username: "",
     avatarUrl: "",
   });
+
+  const isFormValid =
+    data.email && data.password && data.username && data.avatarUrl;
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -42,7 +46,6 @@ const RegisterModal = ({
   return (
     <ModalWithForm
       title="Sign Up"
-      buttonText="Sign Up"
       activeModal={activeModal}
       handleCloseClick={closeActiveModal}
       name={"register"}
@@ -112,6 +115,24 @@ const RegisterModal = ({
             onChange={handleChange}
           />
         </label>
+      </div>
+      <div className="modal__button-container">
+        <button
+          className="modal__button-main"
+          type="submit"
+          aria-label="submit"
+          disabled={!isFormValid}
+        >
+          Sign Up
+        </button>
+        <button
+          className="modal__button-alternative"
+          type="button"
+          aria-label="button"
+          onClick={handleLogInClick}
+        >
+          or Log In
+        </button>
       </div>
     </ModalWithForm>
   );

@@ -31,9 +31,8 @@ a {
   gap: 20px;
 }
 
-.header__add-clothes-btn {
-  margin-left: auto;
-  margin-right: 20px;
+.header__button {
+  margin: 0;
   border-color: transparent;
 }
 
@@ -51,7 +50,7 @@ a {
 .header__profile-info {
   display: flex;
   flex-direction: row;
-  align-items: baseline;
+  align-items: center;
 }
 
 .header__username {
@@ -73,7 +72,5 @@ a {
   background-color: #ffffff;
   font-size: 28px;
   text-align: center;
-  margin-top: 0;
-  vertical-align: middle;
   line-height: 40px;
 }

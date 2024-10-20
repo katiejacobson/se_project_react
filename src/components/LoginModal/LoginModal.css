@@ -1,0 +1,24 @@
+.modal__button-container {
+  display: flex;
+  flex-direction: row;
+  font-size: 16px;
+}
+
+.modal__button-main {
+  background-color: rgba(0, 0, 0);
+  border-radius: 4px;
+  padding: 8px 16px;
+  margin-right: 2px;
+  color: #fff;
+  border: none;
+}
+
+.modal__button-main:disabled {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.modal__button-alternative {
+  border: none;
+  background-color: #fff;
+  color: rgba(0, 0, 0, 0.5);
+}

@@ -1,8 +1,6 @@
 import "./Profile.css";
 import Sidebar from "../Sidebar/Sidebar.jsx";
 import ClothesSection from "../ClothesSection/ClothesSection.jsx";
-import { useState, useEffect, useContext } from "react";
-import CurrentUserContext from "../../contexts/CurrentUserContext.js";
 
 function Profile({
   weatherData,
@@ -15,13 +13,10 @@ function Profile({
   onCardLike,
   isLoggedIn,
 }) {
-  const { currentUser } = useContext(CurrentUserContext);
-
   return (
     <div className="profile">
       <section className="profile__sidebar">
         <Sidebar
-          currentUser={currentUser}
           handleEditProfileClick={handleEditProfileClick}
           closeActiveModal={closeActiveModal}
           handleLogOut={handleLogOut}

@@ -45,18 +45,16 @@ function Header({
             </button>
             <Link to="/profile">
               <div className="header__profile-info">
-                <p className="header__username">{currentUser?.username}</p>
-                {currentUser?.avatarUrl ? (
+                <p className="header__username">{currentUser?.name}</p>
+                {currentUser?.avatar ? (
                   <img
                     className="header__avatar"
-                    src={currentUser?.avatarUrl}
-                    alt={currentUser?.username}
+                    src={currentUser?.avatar}
+                    alt={currentUser?.name}
                   />
                 ) : currentUser ? (
                   <p className="header__default-avatar">
-                    {currentUser.username
-                      ? currentUser.username[0].toUpperCase()
-                      : ""}
+                    {currentUser.name ? currentUser.name[0].toUpperCase() : ""}
                   </p>
                 ) : null}
               </div>

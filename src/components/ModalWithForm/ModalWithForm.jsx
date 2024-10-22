@@ -1,5 +1,4 @@
 import "./ModalWithForm.css";
-import { useNavigate } from "react-router-dom";
 
 function ModalWithForm({
   children,
@@ -10,11 +9,8 @@ function ModalWithForm({
   isOpen,
   onSubmit,
 }) {
-  const navigate = useNavigate();
-
   const backToHome = () => {
     handleCloseClick();
-    navigate("/");
   };
 
   return (

@@ -47,8 +47,8 @@ function App() {
 
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [currentUser, setCurrentUser] = useState({
-    username: "",
-    avatarUrl: "",
+    name: "",
+    avatar: "",
     _id: "",
   });
 
@@ -128,10 +128,10 @@ function App() {
           .catch((err) => console.log(err));
   };
 
-  const handleRegistration = ({ email, password, username, avatarUrl }) => {
+  const handleRegistration = ({ email, password, name, avatar }) => {
     auth
-      .register(email, password, username, avatarUrl)
-      .then(() => navigate("/signin"))
+      .register(email, password, name, avatar)
+      .then(() => handleLogInClick())
       .catch(console.error);
   };
 
@@ -171,8 +171,8 @@ function App() {
       .editUserInfo(name, avatar, jwt)
       .then(() => {
         setCurrentUser({
-          username: name,
-          avatarUrl: avatar,
+          name: name,
+          avatar: avatar,
           _id: _id,
         });
       })
@@ -186,8 +186,8 @@ function App() {
     localStorage.removeItem("jwt");
     setIsLoggedIn(false);
     setCurrentUser({
-      username: "",
-      avatarUrl: "",
+      name: "",
+      avatar: "",
       _id: "",
     });
     navigate("/");
@@ -205,8 +205,8 @@ function App() {
       .then(({ name, avatar, _id }) => {
         setIsLoggedIn(true);
         setCurrentUser({
-          username: name,
-          avatarUrl: avatar,
+          name: name,
+          avatar: avatar,
           _id: _id,
         });
         navigate("/");

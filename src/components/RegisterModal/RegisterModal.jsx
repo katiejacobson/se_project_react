@@ -11,12 +11,11 @@ const RegisterModal = ({
   const [data, setData] = useState({
     email: "",
     password: "",
-    username: "",
-    avatarUrl: "",
+    name: "",
+    avatar: "",
   });
 
-  const isFormValid =
-    data.email && data.password && data.username && data.avatarUrl;
+  const isFormValid = data.email && data.password && data.name;
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -36,10 +35,10 @@ const RegisterModal = ({
     if (!activeModal) return;
 
     setData({
-      username: "",
+      name: "",
       email: "",
       password: "",
-      avatarUrl: "",
+      avatar: "",
     });
   }, [activeModal]);
 
@@ -90,13 +89,13 @@ const RegisterModal = ({
           Name*
           <input
             className="modal__input"
-            name="username"
+            name="name"
             type="text"
-            id="username"
+            id="name"
             placeholder="Name"
             minLength="2"
             maxLength="40"
-            value={data.username}
+            value={data.name}
             onChange={handleChange}
             required
           />
@@ -108,10 +107,10 @@ const RegisterModal = ({
           <input
             className="modal__input"
             type="url"
-            name="avatarUrl"
-            id="avatarUrl"
+            name="avatar"
+            id="avatar"
             placeholder="Avatar URL"
-            value={data.avatarUrl}
+            value={data.avatar}
             onChange={handleChange}
           />
         </label>

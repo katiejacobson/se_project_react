@@ -1,21 +1,25 @@
 import "./Sidebar.css";
+import { useContext } from "react";
+import CurrentUserContext from "../../contexts/CurrentUserContext";
 
-function Sidebar({ currentUser, handleEditProfileClick, handleLogOut }) {
+function Sidebar({ handleEditProfileClick, handleLogOut }) {
+  const { currentUser } = useContext(CurrentUserContext);
+
   return (
     <div className="sidebar">
       <div className="sidebar__profile">
-        {!currentUser.avatarUrl ? (
+        {!currentUser.avatar ? (
           <p className="sidebar__default-avatar">
-            {currentUser.username ? currentUser.username[0].toUpperCase() : ""}
+            {currentUser.name ? currentUser.name[0].toUpperCase() : ""}
           </p>
         ) : (
           <img
-            src={currentUser.avatarUrl}
+            src={currentUser.avatar}
             alt="avatar image"
             className="sidebar__image"
           />
         )}
-        <p className="sidebar__username">{currentUser.username}</p>
+        <p className="sidebar__username">{currentUser.name}</p>
       </div>
       <div className="sidebar__button-container">
         <button

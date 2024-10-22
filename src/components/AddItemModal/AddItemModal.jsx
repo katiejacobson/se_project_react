@@ -109,7 +109,6 @@ const AddItemModal = ({ activeModal, closeActiveModal, onAddItem }) => {
             id="cold"
             value="cold"
             onChange={handleWeatherChange}
-            checked
           />
           <label htmlFor="cold">Cold</label>
         </div>

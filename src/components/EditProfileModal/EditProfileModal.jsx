@@ -9,8 +9,8 @@ const EditProfileModal = ({
 }) => {
   const { currentUser } = useContext(CurrentUserContext);
   const [data, setData] = useState({
-    name: currentUser.username,
-    avatar: currentUser.avatarUrl,
+    name: currentUser.name,
+    avatar: currentUser.avatar,
     _id: currentUser._id,
   });
 
@@ -26,8 +26,8 @@ const EditProfileModal = ({
     e.preventDefault();
 
     const updatedData = {
-      name: data.name || currentUser.username,
-      avatar: data.avatar || currentUser.avatarUrl,
+      name: data.name || currentUser.name,
+      avatar: data.avatar || currentUser.avatar,
       _id: data._id || currentUser._id,
     };
     handleEditProfile(updatedData);
@@ -35,8 +35,8 @@ const EditProfileModal = ({
 
   useEffect(() => {
     setData({
-      name: currentUser.username,
-      avatar: currentUser.avatarUrl,
+      name: currentUser.name,
+      avatar: currentUser.avatar,
       _id: currentUser._id,
     });
   }, [currentUser]);

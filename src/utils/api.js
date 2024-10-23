@@ -21,8 +21,8 @@ export const addItems = (data) => {
       authorization: `Bearer ${token}`,
     },
     body: JSON.stringify({
-      name: data.name,
-      imageUrl: data.imageUrl,
+      name: data.clothingName,
+      imageUrl: data.clothingImageUrl,
       weather: data.weather,
     }),
   }).then((res) => renderResult(res));
@@ -39,7 +39,6 @@ export const deleteItems = (id) => {
 };
 
 export const addCardLike = (id, token) => {
-  console.log(id);
   return fetch(`${baseUrl}/items/${id}/likes`, {
     method: "PUT",
     headers: {

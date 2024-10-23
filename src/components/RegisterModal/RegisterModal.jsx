@@ -27,7 +27,6 @@ const RegisterModal = ({
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(data);
     handleRegistration(data);
   };
 
@@ -52,13 +51,13 @@ const RegisterModal = ({
       onSubmit={handleSubmit}
     >
       <div className="modal__form-field">
-        <label htmlFor="email" className="modal__label">
+        <label className="modal__label">
           Email*
           <input
             className="modal__input"
             name="email"
             type="email"
-            id="email"
+            id="register-email"
             placeholder="Email"
             required
             value={data.email}
@@ -67,13 +66,13 @@ const RegisterModal = ({
         </label>
       </div>
       <div className="modal__form-field">
-        <label htmlFor="password" className="modal__label">
+        <label className="modal__label">
           Password*
           <input
             className="modal__input"
             type="text"
             name="password"
-            id="password"
+            id="register-password"
             placeholder="Password"
             minLength="2"
             maxLength="40"
@@ -85,13 +84,13 @@ const RegisterModal = ({
       </div>
 
       <div className="modal__form-field">
-        <label htmlFor="name" className="modal__label">
+        <label className="modal__label">
           Name*
           <input
             className="modal__input"
             name="name"
             type="text"
-            id="name"
+            id="register-name"
             placeholder="Name"
             minLength="2"
             maxLength="40"
@@ -102,13 +101,13 @@ const RegisterModal = ({
         </label>
       </div>
       <div className="modal__form-field">
-        <label htmlFor="avatar_url" className="modal__label">
+        <label className="modal__label">
           Avatar URL*
           <input
             className="modal__input"
             type="url"
             name="avatar"
-            id="avatar"
+            id="register-avatar"
             placeholder="Avatar URL"
             value={data.avatar}
             onChange={handleChange}

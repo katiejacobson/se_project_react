@@ -3,34 +3,34 @@ import React, { useState, useEffect } from "react";
 import ModalWithForm from "../ModalWithForm/ModalWithForm.jsx";
 
 const AddItemModal = ({ activeModal, closeActiveModal, onAddItem }) => {
-  const [name, setName] = useState("");
-  const [imageUrl, setImageUrl] = useState("");
+  const [clothingName, setClothingName] = useState("");
+  const [clothingImageUrl, setClothingImageUrl] = useState("");
   const [weather, setWeather] = useState("cold");
 
   const handleNameChange = (e) => {
-    setName(e.target.value);
+    setClothingName(e.target.value);
   };
 
   const handleImageChange = (e) => {
-    setImageUrl(e.target.value);
+    setClothingImageUrl(e.target.value);
   };
 
   const handleWeatherChange = (e) => {
     setWeather(e.target.value);
   };
 
-  const isFormValid = name && imageUrl;
+  const isFormValid = clothingName && clothingImageUrl;
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onAddItem(e, { name, imageUrl, weather });
+    onAddItem(e, { clothingName, clothingImageUrl, weather });
   };
 
   useEffect(() => {
     if (!activeModal) return;
 
-    setName("");
-    setImageUrl("");
+    setClothingName("");
+    setClothingImageUrl("");
     setWeather("cold");
   }, [activeModal]);
 
@@ -44,32 +44,32 @@ const AddItemModal = ({ activeModal, closeActiveModal, onAddItem }) => {
       onSubmit={handleSubmit}
     >
       <div className="modal__form-field">
-        <label htmlFor="name" className="modal__label">
+        <label className="modal__label">
           Name
           <input
             className="modal__input"
             name="name"
             type="text"
-            id="name"
+            id="clothing-name"
             placeholder="Name"
             required
             minLength="2"
             maxLength="40"
-            value={name}
+            value={clothingName}
             onChange={handleNameChange}
           />
         </label>
       </div>
       <div className="modal__form-field">
-        <label htmlFor="url" className="modal__label">
+        <label className="modal__label">
           Image
           <input
             className="modal__input"
             type="url"
-            name="image"
+            name="clothing-image"
             id="url"
             placeholder="Image URL"
-            value={imageUrl}
+            value={clothingImageUrl}
             onChange={handleImageChange}
             required
           />

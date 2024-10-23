@@ -51,13 +51,13 @@ const EditProfileModal = ({
       onSubmit={handleSubmit}
     >
       <div className="modal__form-field">
-        <label htmlFor="name" className="modal__label">
+        <label className="modal__label">
           Name*
           <input
             className="modal__input"
             name="name"
             type="text"
-            id="name"
+            id="nameEdit"
             value={data.name}
             minLength="2"
             maxLength="40"
@@ -67,13 +67,13 @@ const EditProfileModal = ({
         </label>
       </div>
       <div className="modal__form-field">
-        <label htmlFor="avatar" className="modal__label">
+        <label className="modal__label">
           Avatar Url*
           <input
             className="modal__input"
             type="url"
             name="avatar"
-            id="avatar"
+            id="avatarEdit"
             value={data.avatar}
             placeholder="imageUrl"
             onChange={handleChange}
